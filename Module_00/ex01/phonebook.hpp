@@ -6,18 +6,15 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 11:39:51 by hkaddour          #+#    #+#             */
-/*   Updated: 2022/11/18 21:52:59 by hkaddour         ###   ########.fr       */
+/*   Updated: 2022/11/19 19:00:52 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-//#ifndef PHONEBOOK_HPP
-//# define PHONEBOOK_HPP
 # include <iostream>
 # include <string>
 # include <cstring>
-
-//class PhoneBook;
+# include <iomanip>
 
 class Contact
 {
@@ -27,13 +24,10 @@ class Contact
 	std::string phonenumber;
 	std::string darkestsecret;
 	public:
-		//void	geter(void);
-		//void	setter(void);
 		void	setter(void);
-		//std::string	setter(std::string input);
-		void	getter(int index);
-		//Contact(void);
-		//Contact(PhoneBook *data, Contact *cont);
+		int		getter(int index);
+		int		check_index_error(void);
+		void	print_index_info(void);
 		Contact(void);
 		~Contact(void);
 };
@@ -41,18 +35,12 @@ class Contact
 class PhoneBook
 {
 	public:
-		//PhoneBook(PhoneBook *data);
 		PhoneBook(void);
 		~PhoneBook(void);
-		//void	get_info(void);
 		void	add(int index);
 		void	search();
 		void	get_input();
-		//void	input_decision(std::string input);
 
 	private:
 		Contact my_contacts[8];
-		//std::string	colum[8]
 };
-
-//#endif

@@ -1,0 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/20 12:35:46 by hkaddour          #+#    #+#              #
+#    Updated: 2022/11/21 11:41:45 by hkaddour         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = BrainZ
+CC = c++ 
+FLAG = -Wall -Wextra -Werror -std=c++98
+HEADER = Zombie.hpp
+SRCS =  main.cpp \
+				Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $^ -o $@
+
+%.o: %.cpp $(HEADER)
+	$(CC) $(FLAG) -c $< -I $(HEADER)
+
+clean:
+	@rm -rf $(OBJS)
+
+fclean: clean
+	@rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

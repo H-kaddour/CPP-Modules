@@ -6,13 +6,13 @@
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 11:33:05 by hkaddour          #+#    #+#              #
-#    Updated: 2022/11/17 12:19:53 by hkaddour         ###   ########.fr        #
+#    Updated: 2022/11/20 12:42:35 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-CC = g++
-FLAG = -Wall -Wextra -Werror
+CC = c++
+FLAG = -Wall -Wextra -Werror -std=c++98
 HEADER = phonebook.hpp
 SRCS = phonebook.cpp
 OBJS = $(SRCS:.cpp=.o)
