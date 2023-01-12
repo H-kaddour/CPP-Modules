@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:06:49 by hkaddour          #+#    #+#             */
-/*   Updated: 2022/11/23 15:07:34 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:48:45 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,7 @@ void	write_in_file(char **av)
 		}
 		f_out << std::endl;
 	}
+	f_in.close();
+	f_out.close();
 }
+//gad this exercice and gad exercice 1 allocate problem abort

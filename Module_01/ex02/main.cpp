@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:44:54 by hkaddour          #+#    #+#             */
-/*   Updated: 2022/11/21 12:20:23 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:36:47 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int	main()
 	std::string &stringREF = str;
 
 	std::cout << &str << " " << str << std::endl;
-	std::cout << &stringPTR << " " << stringPTR << std::endl; std::cout << &stringREF << " " << stringREF << std::endl;
+	std::cout << &stringPTR << " " << stringPTR << std::endl;
+	std::cout << &stringREF << " " << stringREF << std::endl;
 }

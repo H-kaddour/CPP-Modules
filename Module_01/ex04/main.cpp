@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:24:44 by hkaddour          #+#    #+#             */
-/*   Updated: 2022/11/23 15:08:03 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:11:14 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int main(int ac, char **av)
 		else
 			write_in_file(av);
 	}
-	system("leaks Sed");
+	//system("leaks Sed");
 	return (0);
 }

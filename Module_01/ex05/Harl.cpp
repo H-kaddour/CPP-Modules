@@ -6,15 +6,13 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:07:23 by hkaddour          #+#    #+#             */
-/*   Updated: 2022/11/23 21:18:08 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:08:33 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 Harl::Harl(void) {}
-
-Harl::~Harl(void) {}
 
 void	Harl::debug(void)
 {
@@ -53,3 +51,5 @@ void	Harl::complain(std::string level)
 			(this->*(addr_func[i]))();
 	}
 }
+
+Harl::~Harl(void) {}
