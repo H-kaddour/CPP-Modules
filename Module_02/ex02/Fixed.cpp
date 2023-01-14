@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:03:56 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 12:35:53 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:56:27 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,18 @@ Fixed &	Fixed::operator-(const Fixed & obj)
 	return (*this);
 }
 
-Fixed	Fixed::operator*(const Fixed & obj)
+Fixed Fixed::operator*(const Fixed & obj)
 {
-	Fixed	mult(this->toFloat() * obj.toFloat());
-	return (mult);
+	return (this->toFloat() * obj.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed & obj)
 {
-	Fixed	div(this->toFloat() / obj.toFloat());
-	return (div);
+	return (this->toFloat() / obj.toFloat());
 }
 
 /******* Increment & decrement Operators *******/
-Fixed Fixed::operator--(void)
+Fixed & Fixed::operator--(void)
 {
 	--this->value;
 	return (*this);
@@ -51,7 +49,7 @@ Fixed Fixed::operator--(int)
 	return (decr);
 }
 
-Fixed Fixed::operator++(void)
+Fixed & Fixed::operator++(void)
 {
 	++this->value;
 	return (*this);
@@ -59,41 +57,38 @@ Fixed Fixed::operator++(void)
 
 Fixed	Fixed::operator++(int)
 {
-	//Fixed	incr(this->value);
 	Fixed incr(this->toFloat());
 	++this->value;
-	//return (*this);
 	return (incr);
 }
 
 /************ Comparison Operators ***************/
-bool	Fixed::operator>(const Fixed & obj)
+bool	Fixed::operator>(const Fixed & obj) const
 {
-	std::cout << "h" << std::endl;
 	return (this->toFloat() > obj.toFloat() ? true : false);
 }
 
-bool	Fixed::operator<(const Fixed & obj)
+bool	Fixed::operator<(const Fixed & obj) const
 {
 	return (this->toFloat() < obj.toFloat() ? true : false);
 }
 
-bool	Fixed::operator>=(const Fixed & obj)
+bool	Fixed::operator>=(const Fixed & obj) const
 {
 	return (this->toFloat() >= obj.toFloat() ? true : false);
 }
 
-bool	Fixed::operator<=(const Fixed & obj)
+bool	Fixed::operator<=(const Fixed & obj) const
 {
 	return (this->toFloat() <= obj.toFloat() ? true : false);
 }
 
-bool	Fixed::operator==(const Fixed & obj)
+bool	Fixed::operator==(const Fixed & obj) const
 {
 	return (this->toFloat() == obj.toFloat() ? true : false);
 }
 
-bool	Fixed::operator!=(const Fixed & obj)
+bool	Fixed::operator!=(const Fixed & obj) const
 {
 	return (this->toFloat() != obj.toFloat() ? true : false);
 }
@@ -106,7 +101,7 @@ Fixed & Fixed::min(Fixed & obj1, Fixed & obj2)
 
 const	Fixed & Fixed::min(const Fixed & obj1, const Fixed & obj2)
 {
-	return (obj1.toFloat() < obj2.toFloat() ? obj1 : obj2);
+	return (obj1 < obj2 ? obj1 : obj2);
 }
 
 Fixed & Fixed::max(Fixed & obj1, Fixed & obj2)
@@ -114,9 +109,9 @@ Fixed & Fixed::max(Fixed & obj1, Fixed & obj2)
 	return (obj1 > obj2 ? obj1 : obj2);
 }
 
-const Fixed & Fixed::max(const Fixed & obj1, const Fixed & obj2)
+const	Fixed & Fixed::max(const Fixed & obj1, const Fixed & obj2)
 {
-	return (obj1.toFloat() > obj2.toFloat() ? obj1 : obj2);
+	return (obj1 > obj2 ? obj1 : obj2);
 }
 
 Fixed::Fixed(void) : value(0)

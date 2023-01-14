@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:59:41 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 13:16:15 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:10:01 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Fixed
 	static const int	bits = 8;
 	public:
 		Fixed(void);
+		Fixed(std::string name);
 		Fixed(const int value);
 		Fixed(const float value);
 		Fixed(Fixed const & obj);
@@ -42,17 +43,17 @@ class Fixed
 		Fixed operator/(const Fixed & obj);
 		Fixed operator*(const Fixed & obj);
 
-		Fixed operator++(void);
-		Fixed operator++(int);
-		Fixed operator--(void);
-		Fixed operator--(int);
+		Fixed & operator++(void);
+		Fixed  operator++(int);
+		Fixed & operator--(void);
+		Fixed  operator--(int);
 
-		bool	operator>(const Fixed & obj);
-		bool	operator<(const Fixed & obj);
-		bool	operator>=(const Fixed & obj);
-		bool	operator<=(const Fixed & obj);
-		bool	operator==(const Fixed & obj);
-		bool	operator!=(const Fixed & obj);
+		bool	operator>(const Fixed & obj) const;
+		bool	operator<(const Fixed & obj) const;
+		bool	operator>=(const Fixed & obj) const;
+		bool	operator<=(const Fixed & obj) const;
+		bool	operator==(const Fixed & obj) const;
+		bool	operator!=(const Fixed & obj) const;
 
 };
 

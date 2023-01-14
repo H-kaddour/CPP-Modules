@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:41:24 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 23:40:00 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:05:11 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << "Dog Defautl constructer called!" << std::endl;
+	this->brain = new Brain();
 }
 
 Dog::Dog(Dog const & obj)
@@ -37,5 +38,6 @@ Dog & Dog::operator=(Dog const & obj)
 
 Dog::~Dog(void)
 {
-	std::cout << "Dog Default constructer called!" << std::endl;
+	std::cout << "Dog Default Destructer called!" << std::endl;
+	delete this->brain;
 }

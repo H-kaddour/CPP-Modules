@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:42:38 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 23:38:08 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:05:19 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ Animal & Animal::operator=(Animal const & obj)
 
 Animal::~Animal(void)
 {
-	std::cout << "Animal Default constructer called!" << std::endl;
+	std::cout << "Animal Default Destructer called!" << std::endl;
 }

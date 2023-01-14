@@ -6,13 +6,15 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:30:43 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 22:22:31 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:50:13 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+#define size 10
 
 class	Animal
 {

@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:06:49 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 18:48:45 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:16:56 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	write_in_file(char **av)
 		{
 			while (!(find < 0))
 			{
-				f_out << buffer.substr(0, find);
+				if (find != 0)
+					f_out << buffer.substr(0, find);
 				f_out << av[3];
-				buffer.assign(buffer, find + strlen(av[1]));
+				buffer.assign(buffer, find + strlen(av[2]));
 				find = buffer.find(av[2]);
 				if (find < 0 && !buffer.empty())
 					f_out << buffer;
@@ -44,4 +45,3 @@ void	write_in_file(char **av)
 	f_in.close();
 	f_out.close();
 }
-//gad this exercice and gad exercice 1 allocate problem abort

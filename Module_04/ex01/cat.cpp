@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:41:22 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 23:40:09 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:05:02 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << "Cat Defautl constructer called!" << std::endl;
+	this->brain = new Brain();
 }
 
 Cat::Cat(Cat const & obj)
@@ -37,5 +38,6 @@ Cat & Cat::operator=(Cat const & obj)
 
 Cat::~Cat(void)
 {
-	std::cout << "Cat Default constructer called!" << std::endl;
+	std::cout << "Cat Default Destructer called!" << std::endl;
+	delete this->brain;
 }

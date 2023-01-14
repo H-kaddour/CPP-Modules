@@ -6,21 +6,23 @@
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 17:30:42 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/12 18:40:50 by hkaddour         ###   ########.fr        #
+#    Updated: 2023/01/13 11:54:51 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = Brain
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
 HEADER = animal.hpp \
-				 dog.cpp \
-				 cat.cpp
+				 dog.hpp \
+				 cat.hpp \
+				 brain.hpp
 
 SRCS =  main.cpp \
 				animal.cpp \
 				dog.cpp \
-				cat.cpp
+				cat.cpp \
+				brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
