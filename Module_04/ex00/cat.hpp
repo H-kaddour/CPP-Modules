@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 17:34:40 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 21:40:00 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/17 12:52:21 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/18 16:12:30 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "animal.hpp"
+#include "Animal.hpp"
 
 class	Cat : public Animal
 {
 	public:
 		Cat(void);
-		Cat(std::string name);
 		Cat(Cat const & obj);
 		~Cat(void);
 		void	makeSound(void) const;

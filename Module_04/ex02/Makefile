@@ -6,23 +6,27 @@
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 17:30:42 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/13 14:21:14 by hkaddour         ###   ########.fr        #
+#    Updated: 2023/01/18 16:15:39 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Animal
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
-HEADER = animal.hpp \
-				 dog.hpp \
-				 cat.hpp \
-				 brain.hpp
+HEADER = Animal.hpp \
+				 Dog.hpp \
+				 Cat.hpp \
+				 WrongAnimal.hpp \
+				 WrongCat.hpp \
+				 Brain.hpp
 
 SRCS =  main.cpp \
-				animal.cpp \
-				dog.cpp \
-				cat.cpp \
-				brain.cpp
+				Animal.cpp \
+				Dog.cpp \
+				Cat.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp \
+				Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -32,10 +36,11 @@ $(NAME): $(OBJS)
 	$(CC) $^ -o $@
 
 %.o: %.cpp $(HEADER)
-	$(CC) $(FLAG) -c $< -I $(HEADER)
+	$(CC) $(FLAG) -c $<
 
 clean:
 	@rm -rf $(OBJS)
+	@rm -f *.gch
 
 fclean: clean
 	@rm -rf $(NAME)

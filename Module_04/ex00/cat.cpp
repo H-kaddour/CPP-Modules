@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:41:22 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 23:40:09 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:47:00 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
+#include "Cat.hpp"
 
 Cat::Cat(void) : Animal("Cat")
 {
@@ -37,5 +37,5 @@ Cat & Cat::operator=(Cat const & obj)
 
 Cat::~Cat(void)
 {
-	std::cout << "Cat Default constructer called!" << std::endl;
+	std::cout << "Cat Default Destructer called!" << std::endl;
 }

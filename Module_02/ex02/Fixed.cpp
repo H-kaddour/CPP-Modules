@@ -6,23 +6,21 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:03:56 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/14 15:56:27 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:59:53 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 /************ Arithemitic Operators ***************/
-Fixed &	Fixed::operator+(const Fixed & obj)
+Fixed Fixed::operator+(const Fixed & obj)
 {
-	this->value += obj.value;
-	return (*this);
+	return (this->toFloat() + obj.toFloat());
 }
 
-Fixed &	Fixed::operator-(const Fixed & obj)
+Fixed	Fixed::operator-(const Fixed & obj)
 {
-	this->value -= obj.value;
-	return (*this);
+	return (this->toFloat() - obj.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed & obj)

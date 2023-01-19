@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:42:38 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/12 23:38:08 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:46:43 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
+#include "Animal.hpp"
 
 Animal::Animal(void) : type("Animal")
 {
@@ -47,5 +47,5 @@ Animal & Animal::operator=(Animal const & obj)
 
 Animal::~Animal(void)
 {
-	std::cout << "Animal Default constructer called!" << std::endl;
+	std::cout << "Animal Default Destructer called!" << std::endl;
 }

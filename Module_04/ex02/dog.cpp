@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dog.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:41:24 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/13 12:05:11 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:36:54 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dog.hpp"
+#include "Dog.hpp"
 
 Dog::Dog(void) : Animal("Dog")
 {
@@ -21,6 +21,7 @@ Dog::Dog(void) : Animal("Dog")
 Dog::Dog(Dog const & obj)
 {
 	std::cout << "Dog Copy constructer called!" << std::endl;
+	this->brain = new Brain();
 	*this = obj;
 }
 
@@ -33,6 +34,7 @@ Dog & Dog::operator=(Dog const & obj)
 {
 	std::cout << "Dog Copy assignement called!" << std::endl;
 	this->type = obj.type;
+	*this->brain = *obj.brain;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 13:01:18 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/09 14:58:26 by hkaddour         ###   ########.fr        #
+#    Updated: 2023/01/14 16:56:54 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -rf $(OBJS)
+	@rm -f *.gch
 
 fclean: clean
 	@rm -rf $(NAME)

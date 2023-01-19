@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:42:38 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/13 14:52:44 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:03:35 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
+#include "Animal.hpp"
 
 Animal::Animal(void) : type("Animal")
 {
@@ -32,11 +32,6 @@ std::string	Animal::getType(void) const
 {
 	return (this->type);
 }
-
-//void	Animal::makeSound(void) const
-//{
-//	std::cout << type << " have a lot of sound none specify." << std::endl;
-//}
 
 Animal & Animal::operator=(Animal const & obj)
 {

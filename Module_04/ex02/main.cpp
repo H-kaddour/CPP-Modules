@@ -6,12 +6,12 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:30:40 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/13 14:51:36 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:39:18 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dog.hpp"
-#include "cat.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {

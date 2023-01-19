@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:41:22 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/13 12:05:02 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:20:45 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
+#include "Cat.hpp"
 
 Cat::Cat(void) : Animal("Cat")
 {
@@ -21,6 +21,7 @@ Cat::Cat(void) : Animal("Cat")
 Cat::Cat(Cat const & obj)
 {
 	std::cout << "Cat Copy constructer called!" << std::endl;
+	this->brain = new Brain();
 	*this = obj;
 }
 
@@ -33,6 +34,7 @@ Cat & Cat::operator=(Cat const & obj)
 {
 	std::cout << "Cat Copy assignement called!" << std::endl;
 	this->type = obj.type;
+	*this->brain = *obj.brain;
 	return (*this);
 }
 

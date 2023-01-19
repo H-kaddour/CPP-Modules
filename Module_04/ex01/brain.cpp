@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brain.cpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:37:00 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/13 12:05:32 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:05:30 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "brain.hpp"
+#include "Brain.hpp"
 
 Brain::Brain(void)
 {
@@ -19,15 +19,15 @@ Brain::Brain(void)
 
 Brain::Brain(Brain const & obj)
 {
-	(void)obj;
 	std::cout << "Brain Copy constructer called!" << std::endl;
+	*this = obj;
 }
 
 Brain & Brain::operator=(Brain const & obj)
 {
-	(void)obj;
 	std::cout << "Brain Copy assignement called!" << std::endl;
-	//this->type = obj.type;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = obj.ideas[i];
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:59:41 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/14 16:10:01 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:00:14 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ class Fixed
 		static	Fixed & max(Fixed & obj1, Fixed & obj2);
 		static	const Fixed & max(Fixed const & obj1, Fixed const & obj2);
 
-		Fixed & operator+(const Fixed & obj);
-		Fixed & operator-(const Fixed & obj);
+		//Fixed & operator+(const Fixed & obj);
+		Fixed operator+(const Fixed & obj);
+		Fixed operator-(const Fixed & obj);
 		Fixed operator/(const Fixed & obj);
 		Fixed operator*(const Fixed & obj);
 

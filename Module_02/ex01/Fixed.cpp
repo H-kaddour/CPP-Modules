@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:10:33 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/14 16:13:19 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:37:37 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Fixed::Fixed(const float value)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->value / (1 << this->bits));
+	return (((float)this->value) / (1 << this->bits));
 }
 
 int	Fixed::toInt(void) const

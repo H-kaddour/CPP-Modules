@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:49:33 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/11 16:57:56 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:40:14 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
 		int	getter(void) const;
 		float	toFloat(void) const;
 		int	toInt(void) const;
-		Fixed & operator=(const Fixed & obj);
+		Fixed	&	operator=(const Fixed & obj);
 		int	getRawBits(void) const;
 		void	setRawBits(int const raw);
 };
