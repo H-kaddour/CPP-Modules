@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/19 15:51:58 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/19 16:00:58 by hkaddour         ###   ########.fr        #
+#    Created: 2023/01/26 18:26:08 by hkaddour          #+#    #+#              #
+#    Updated: 2023/01/27 14:48:09 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = serialize
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
-HEADER = Bureaucrat.hpp
+HEADER = scalar.hpp
 
-SRCS =  main.cpp \
-				Bureaucrat.cpp
+SRCS = main.cpp \
+			 serialize.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

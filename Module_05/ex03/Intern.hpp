@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:51:34 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 11:10:28 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/25 16:32:14 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/25 17:48:37 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
 
-int	main(void)
+class AForm;
+#include <iostream>
+
+class Intern
 {
-	Bureaucrat	bureau("zaz", 12);
-	Bureaucrat	l(bureau);
-	std::cout << l << std::endl;
-	bureau.increment();
-	bureau.decrement();
-	std::cout << bureau << std::endl;
-
-	return (0);
-}
+	public:
+		Intern(void);
+		Intern(Intern const & obj);
+		~Intern(void);
+		Intern & operator=(Intern const & obj);
+		AForm	*makeForm(std::string name, std::string target);
+};

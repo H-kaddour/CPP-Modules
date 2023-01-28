@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:51:56 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 18:23:32 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/21 16:55:46 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/25 18:46:45 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Form
 {
 	const std::string name;
-	int	grade;
+	bool	sign;
+	const int	grade_sign;
+	const int	grade_exec;
 	public:
-		Bureaucrat(void);
-		Bureaucrat(Bureaucrat const & obj);
-		Bureaucrat(std::string name, int grade);
-		~Bureaucrat(void);
-		Bureaucrat & operator=(Bureaucrat const & obj);
+		Form(void);
+		Form(Form & obj);
+		Form(std::string name, int grade);
+		~Form(void);
+		Form & operator=(Form const & obj);
 
-		std::string	getName(void);
-		int		getGrade(void);
-		void	increment(void);
-		void	decrement(void);
+		const std::string getName(void);
+		bool	getSign(void);
+		int getGradeSign(void);
+		int getGradeExec(void);
+
+		void	beSigned(Bureaucrat & obj);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -43,4 +47,4 @@ class Bureaucrat
 		};
 };
 
-std::ostream & operator<<(std::ostream & os, Bureaucrat & obj);
+std::ostream & operator<<(std::ostream & os, Form & obj);

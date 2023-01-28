@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:51:34 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 11:10:28 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/25 12:54:27 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/25 15:21:31 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
 
-int	main(void)
+#include "AForm.hpp"
+
+class	RobotomyRequestForm : public AForm
 {
-	Bureaucrat	bureau("zaz", 12);
-	Bureaucrat	l(bureau);
-	std::cout << l << std::endl;
-	bureau.increment();
-	bureau.decrement();
-	std::cout << bureau << std::endl;
-
-	return (0);
-}
+	public:
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string name, int sign, int exec);
+		RobotomyRequestForm(RobotomyRequestForm & obj);
+		~RobotomyRequestForm(void);
+		int	execute(Bureaucrat const & executor) const;
+		RobotomyRequestForm & operator=(RobotomyRequestForm const & obj);
+};

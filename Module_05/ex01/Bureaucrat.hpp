@@ -6,13 +6,15 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:51:56 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 18:23:32 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/22 22:49:05 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -26,7 +28,7 @@ class Bureaucrat
 		Bureaucrat & operator=(Bureaucrat const & obj);
 
 		std::string	getName(void);
-		int		getGrade(void);
+		int	getGrade(void);
 		void	increment(void);
 		void	decrement(void);
 
@@ -41,6 +43,8 @@ class Bureaucrat
 			public:
 				const	char *what() const throw();
 		};
+
+		void	signForm(Form & obj);
 };
 
 std::ostream & operator<<(std::ostream & os, Bureaucrat & obj);

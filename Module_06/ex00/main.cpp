@@ -5,21 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:51:34 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 11:10:28 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/25 20:13:13 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/28 14:45:00 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "scalar.hpp"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	Bureaucrat	bureau("zaz", 12);
-	Bureaucrat	l(bureau);
-	std::cout << l << std::endl;
-	bureau.increment();
-	bureau.decrement();
-	std::cout << bureau << std::endl;
-
+	if (ac != 2)
+		return (1);
+	to_char(av[1]);
+	to_int(av[1]);
+	to_fl_doub(0, av[1]);
+	to_fl_doub(1, av[1]);
 	return (0);
 }

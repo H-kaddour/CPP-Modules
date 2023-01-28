@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:51:34 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 11:10:28 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/25 12:03:34 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/25 15:21:13 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
 
-int	main(void)
+#include "AForm.hpp"
+
+class PresidentialPardonForm : public AForm
 {
-	Bureaucrat	bureau("zaz", 12);
-	Bureaucrat	l(bureau);
-	std::cout << l << std::endl;
-	bureau.increment();
-	bureau.decrement();
-	std::cout << bureau << std::endl;
-
-	return (0);
-}
+	public:
+		PresidentialPardonForm(void);
+		PresidentialPardonForm(std::string name, int sing, int exec);
+		PresidentialPardonForm(PresidentialPardonForm & obj);
+		~PresidentialPardonForm(void);
+		int	execute(Bureaucrat const & executor) const;
+		PresidentialPardonForm & operator=(PresidentialPardonForm const & obj);
+};

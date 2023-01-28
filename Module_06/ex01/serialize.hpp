@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   serialize.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:51:34 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 11:10:28 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/26 18:26:10 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/27 14:27:53 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
 
-int	main(void)
+#include <iostream>
+
+typedef	struct Data
 {
-	Bureaucrat	bureau("zaz", 12);
-	Bureaucrat	l(bureau);
-	std::cout << l << std::endl;
-	bureau.increment();
-	bureau.decrement();
-	std::cout << bureau << std::endl;
+	int	nbr;
+	uintptr_t	ser;
+	Data *des;
+} Data;
 
-	return (0);
-}
+uintptr_t serialize(Data* ptr);
+Data* deserialize(uintptr_t raw);

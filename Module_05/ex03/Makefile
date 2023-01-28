@@ -6,17 +6,28 @@
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 15:51:58 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/19 16:00:58 by hkaddour         ###   ########.fr        #
+#    Updated: 2023/01/25 18:03:37 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Intern
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
-HEADER = Bureaucrat.hpp
+HEADER = AForm.hpp \
+				 Intern.hpp \
+				 Bureaucrat.hpp \
+				 RobotomyRequestForm.hpp \
+				 ShrubberyCreationForm.hpp \
+				 PresidentialPardonForm.hpp
 
 SRCS =  main.cpp \
-				Bureaucrat.cpp
+				AForm.cpp \
+				Intern.cpp \
+				Bureaucrat.cpp \
+				RobotomyRequestForm.cpp \
+				ShrubberyCreationForm.cpp \
+				PresidentialPardonForm.cpp
+
 
 OBJS = $(SRCS:.cpp=.o)
 

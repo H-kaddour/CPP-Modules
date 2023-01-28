@@ -5,18 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/19 15:51:58 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/19 16:00:58 by hkaddour         ###   ########.fr        #
+#    Created: 2023/01/27 14:57:38 by hkaddour          #+#    #+#              #
+#    Updated: 2023/01/28 19:47:12 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = ids
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
-HEADER = Bureaucrat.hpp
+HEADER = Base.hpp \
+				 A.hpp \
+				 B.hpp \
+				 C.hpp
 
-SRCS =  main.cpp \
-				Bureaucrat.cpp
+SRCS = main.cpp \
+			 Base.cpp \
+			 func.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

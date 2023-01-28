@@ -6,11 +6,11 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:19:05 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/25 18:24:41 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:17:47 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : grade(1)
 {
@@ -19,12 +19,13 @@ Bureaucrat::Bureaucrat(void) : grade(1)
 
 Bureaucrat::Bureaucrat(Bureaucrat const & obj) : name(obj.name)
 {
-	std::cout << "Copy constructer called!" << std::endl;
+	std::cout << "Bureaucrat Copy constructer called!" << std::endl;
 	*this = obj;
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & obj)
 {
+	std::cout << "Bureaucrat Copy assignment!" << std::endl;
 	this->grade = obj.grade;
 	return (*this);
 }
@@ -61,8 +62,8 @@ void	Bureaucrat::increment(void)
 {
 	try
 	{
-		if(this->grade == 1)
-				throw (GradeTooHighException());
+		if (this->grade == 1)
+			throw (GradeTooHighException());
 		this->grade--;
 	}
 	catch (std::exception & e)
@@ -75,8 +76,8 @@ void	Bureaucrat::decrement(void)
 {
 	try
 	{
-		if(this->grade == 150)
-				throw (GradeTooLowException());
+		if (this->grade == 150)
+			throw (GradeTooHighException());
 		this->grade++;
 	}
 	catch (std::exception & e)
@@ -99,6 +100,17 @@ std::ostream	&	operator<<(std::ostream & os, Bureaucrat & obj)
 {
 	os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
 	return (os);
+}
+
+void	Bureaucrat::signForm(Form & obj)
+{
+	if (obj.getSign())
+		std::cout << this->getName() << " signed " << obj.getName() << "." << std::endl;
+	else
+	{
+		std::cout << this->getName() << " couldn't sign " << obj.getName();
+		std::cout << " because number of form are way too high than bureaucrat."<< std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat(void)
