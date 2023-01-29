@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 17:57:57 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/28 18:07:46 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/29 18:18:16 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/29 18:19:54 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "easyfind.hpp"
 
-#include <iostream>
-
-template <typename T> sort(T a, T b)
+int	main()
 {
-	return  (a);
+	return (0);
 }

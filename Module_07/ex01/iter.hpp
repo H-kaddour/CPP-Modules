@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 17:57:57 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/29 17:14:35 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/28 21:55:28 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/29 17:18:29 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,15 @@
 
 #include <iostream>
 
-template <typename T>
-void	swap(T &a, T &b)
+template <typename T, typename D>
+void	iter(T arr, D len, void (*print)(T))
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
+	for (int i = 0; i < len; i++)
+		print(&arr[i]);
 }
 
 template <typename T>
-T	min(T a, T b)
+void	print(T elem)
 {
-	return (a < b) ? a : b;
-}
-
-template <typename T>
-T	max(T a, T b)
-{
-	return (a > b) ? a : b;
+	std::cout << (*elem) << std::endl;
 }
