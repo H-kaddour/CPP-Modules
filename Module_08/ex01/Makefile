@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/29 18:18:18 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/30 21:30:35 by hkaddour         ###   ########.fr        #
+#    Created: 2023/01/30 22:23:45 by hkaddour          #+#    #+#              #
+#    Updated: 2023/01/30 22:33:45 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = find
+NAME = Span
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
-HEADER = easyfind.hpp \
-				 easyfind.tpp
+HEADER = Span.hpp
 
-SRCS =  main.cpp
+SRCS =  main.cpp \
+				Span.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

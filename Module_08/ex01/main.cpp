@@ -5,38 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 18:18:16 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/30 22:20:13 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/30 22:23:33 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/31 18:48:18 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 
 int	main(void)
 {
 	{
-		try
-		{
-			int	arr[6] = {10, 9, 2, 3, 82, 12};
-			std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
-			easyfind(vec, 1);
-		}
-		catch (char const *error)
-		{
-			std::cout << error << std::endl;
-		}
+		Span sp = Span(5);
+
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	}
 
 	{
-		try
-		{
-			std::array<int, 6> arr = {10, 98, 2, 3, 82, 12};
-			easyfind(arr, 12);
-		}
-		catch (char const *error)
-		{
-			std::cout << error << std::endl;
-		}
+		Span sp(5);
+		int	arr[5] = {2, 38, 99, 7, 1};
+		std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
+		sp.rangeOFiter(vec.begin(), vec.end());
+		
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	}
+
 	return (0);
 }

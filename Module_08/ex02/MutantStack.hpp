@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 12:08:04 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/30 19:19:08 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/31 18:50:35 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/02/03 22:34:33 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <deque>
+#include <list>
+#include <map>
+#include <stack>
 
-template <typename T>
-class Array
+template <typename T, class container=std::deque<T> >
+class	MutantStack : public std::stack <T, container>
 {
-	T *arr;
-	unsigned int	_size;
 	public:
-		Array(void);
-		Array(unsigned int n);
-		Array(Array & obj);
-		Array & operator=(Array const & obj);
-		T	& operator[](int);
-		int	size(void);
-		~Array(void);
+		MutantStack(void);
+		MutantStack(MutantStack const & obj);
+		MutantStack & operator=(MutantStack const & obj);
+		~MutantStack(void);
+		typedef	typename container::iterator	iterator;
+		iterator	begin();
+		iterator	end();
 };
-Array l;
 
-l[i] =
-
-#include "Array.tpp"
+#include "MutantStack.tpp"

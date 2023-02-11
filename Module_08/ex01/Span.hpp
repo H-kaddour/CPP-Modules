@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 12:08:04 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/01/30 19:19:08 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/01/30 22:24:16 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/01/31 18:47:41 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <vector>
 
-template <typename T>
-class Array
+class Span
 {
-	T *arr;
-	unsigned int	_size;
+	std::vector<int> vec;
+	unsigned int N;
 	public:
-		Array(void);
-		Array(unsigned int n);
-		Array(Array & obj);
-		Array & operator=(Array const & obj);
-		T	& operator[](int);
-		int	size(void);
-		~Array(void);
+		Span(void);
+		Span(unsigned int _N);
+		Span(Span const & obj);
+		~Span(void);
+		Span & operator=(Span const & obj);
+		void	addNumber(int nbr);
+		void	rangeOFiter(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		int		shortestSpan(void);
+		int		longestSpan(void);
 };
-Array l;
-
-l[i] =
-
-#include "Array.tpp"

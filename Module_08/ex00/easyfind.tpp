@@ -13,6 +13,10 @@
 #pragma once
 
 template <typename T>
-void	easyfind(T arg1, int arg2)
+void	easyfind(T cont, int find)
 {
+	typename T::iterator iter = std::find(cont.begin(), cont.end(), find);
+	if (*iter != find)
+		throw ("Didn't find the occurence number :v");
+	std::cout << find << " number found." << std::endl;
 }

@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/29 18:18:18 by hkaddour          #+#    #+#              #
-#    Updated: 2023/01/30 21:30:35 by hkaddour         ###   ########.fr        #
+#    Created: 2023/01/31 18:50:30 by hkaddour          #+#    #+#              #
+#    Updated: 2023/01/31 18:53:41 by hkaddour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = find
+NAME = Stack
 CC = c++ 
 FLAG = -Wall -Wextra -Werror -std=c++98 -g
-HEADER = easyfind.hpp \
-				 easyfind.tpp
+HEADER = MutantStack.hpp \
+				 MutantStack.tpp
 
 SRCS =  main.cpp
 
