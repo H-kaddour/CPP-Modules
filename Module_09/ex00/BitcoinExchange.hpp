@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:41 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/16 16:06:20 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:04:32 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <sstream>
 #include <string>
 #include <fstream>
+#include <ctype.h>
 #include <algorithm>
 #include <vector>
 
@@ -35,14 +36,15 @@ struct	database
 class	BitcoinExchange
 {
 	std::vector<database>	data;
-	int		colum_database;
+	//int		colum_database;
 	std::ifstream	fd_database;
 	public :
 		BitcoinExchange(void);
 		BitcoinExchange(BitcoinExchange const & obj);
 		BitcoinExchange & operator=(BitcoinExchange const & obj);
-		//void	len_colum_database(void);
-		void	parse_data(void);
+		//void	parse_data(void);
 		void	save_database(std::string data, int i);
+		void	parse_input_file(std::string file);
+
 		~BitcoinExchange(void);
 };

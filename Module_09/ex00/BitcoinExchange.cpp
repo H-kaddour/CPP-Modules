@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:28 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/16 16:05:43 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:24:49 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 BitcoinExchange::BitcoinExchange(void)
 {
 	std::cout << "BitcoinExchange Default constructor called!" << std::endl;
-	//this->len_colum_database();
 	this->fd_database.open("data.csv");
 	if (!this->fd_database.is_open())
 	{
@@ -65,6 +64,36 @@ BitcoinExchange::BitcoinExchange(void)
 //	}
 //}
 
+void	BitcoinExchange::parse_input_file(std::string file)
+{
+	std::string	data;
+	std::ifstream	input_file;
+
+	input_file.open(file);
+	if (!input_file.is_open())
+	{
+		std::cerr << "Error can't open file of the database" << std::endl;
+		exit(1);
+	}
+	for (int	i = 0; std::getline(input_file, data); i++)
+	{
+		//std::cout << data.c_str()[data.length() - 1] << std::endl;
+		//here trim the string and 
+		for (int	i = 0; ; i++)
+		{
+
+		}
+		exit(0);
+		if (std::count(data.begin(), data.end(), '|') != 1 || \
+				!isdigit(data.c_str()[0]) || !isdigit(data.c_str()[data.length() - 1]))
+		{
+			std::cout << "ll" << std::endl;
+		}
+		//exit(0);
+		//if (!i && )
+	}
+}
+
 void	BitcoinExchange::save_database(std::string data, int i)
 {
 	std::string hld;
@@ -73,27 +102,8 @@ void	BitcoinExchange::save_database(std::string data, int i)
 	std::istringstream(data.substr(data.find('-') + 4, data.find('-') + 6)) >> this->data[i].day;
 	hld = data.substr(data.find(',') + 1, data.length());
 	this->data[i].value = atof(hld.c_str());
-	//std::cout << data << std::endl;
-	//std::cout << this->data[i].year << std::endl;
-	//std::cout << this->data[i].month << std::endl;
-	//std::cout << this->data[i].day << std::endl;
-	//std::cout << this->data[i].value << std::endl;
 }
-
-//void	BitcoinExchange::len_colum_database()
-//{
-//	this->fd_database.open("l.csv");
-//	if (!this->fd_database.is_open())
-//	{
-//		std::cerr << "Error can't open file of the database" << std::endl;
-//		//maybe here i should exit
-//	}
-//	std::string	hld;
-//	for (this->colum_database = 0; std::getline(this->fd_database, hld); this->colum_database++)
-//		;
-//	this->fd_database.close();
-//	//here i have to check if the first line start with number or chars and if len gretter than 0
-//}
+	
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const & obj)
 {

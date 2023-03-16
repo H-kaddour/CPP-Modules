@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:02 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/16 16:10:38 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:25:28 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int	main(int ac, char **av)
 {
-	(void)av;
 	if (ac != 2)
 	{
 		std::cerr << "Erro\nUsage: ./btc file" << std::endl;
 		return (1);
 	}
 	BitcoinExchange g;
-	//g.
 
+	g.parse_input_file(av[1]);
 	return (0);
 }
