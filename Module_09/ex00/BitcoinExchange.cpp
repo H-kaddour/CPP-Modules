@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:28 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/16 19:24:49 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:52:13 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ BitcoinExchange::BitcoinExchange(void)
 	if (!this->fd_database.is_open())
 	{
 		std::cerr << "Error can't open file of the database" << std::endl;
-		//maybe here i should exit
+		exit(1);
 	}
 	std::string data;
 	std::getline(this->fd_database, data);
@@ -64,6 +64,59 @@ BitcoinExchange::BitcoinExchange(void)
 //	}
 //}
 
+//std::string	trim_string(std::string data)
+void	trim_string(std::string &data)
+{
+	int	start = 0;
+	int	end = data.length() - 1;
+
+	while (isspace(data.c_str()[start]) || isspace(data.c_str()[end]))
+	{
+		if (isspace(data.c_str()[start]))
+			start++;
+		if (isspace(data.c_str()[end]))
+			end--;
+	}
+	data = data.substr(start, end - start + 1);
+	//return (data.substr(start, end - start + 1));
+}
+
+std::vector<std::string>	split(std::string data, char c)
+{
+	std::vector<std::string> value;
+	std::string::iterator itr = data.begin();
+	std::string::iterator trav = data.begin();
+	int	i = 0;
+	while (1)
+	{
+		if (itr == data.end())
+		{
+			value.push_back(data.substr(i, std::distance(trav, itr)));
+			break ;
+		}
+		if (*itr == c)
+		{
+			value.push_back(data.substr(i, std::distance(trav, itr)));
+			i += std::distance(trav, itr) + 1;
+			trav = itr + 1;
+		}
+		itr++;
+	}
+	//std::vector<std::string>::iterator g;
+
+	//for (g = value.begin(); g != value.end(); g++)
+	//{
+	//	std::cout << *g << std::endl;
+	//}
+	//exit(0);
+	//value.push_back(trim_string(data.substr(0, data.find(c))));
+	//value.push_back(trim_string(data.substr(data.find(c) + 1)));
+	//std::cout << value[0] << std::endl;
+	//std::cout << value[1] << std::endl;
+	//std::cout << value[3] << std::endl;
+	return (value);
+}
+
 void	BitcoinExchange::parse_input_file(std::string file)
 {
 	std::string	data;
@@ -79,18 +132,63 @@ void	BitcoinExchange::parse_input_file(std::string file)
 	{
 		//std::cout << data.c_str()[data.length() - 1] << std::endl;
 		//here trim the string and 
-		for (int	i = 0; ; i++)
+		//if (!i)
+		//{
+		//	if (data.compare("data | value"))
+		//		continue ;
+		//	else
+		//		std::cout << "Input file should start with : data | value" << std::endl;
+		//}
+		if (isspace(data.c_str()[0]) || isspace(data.c_str()[data.length() - 1]))
+			trim_string(data);
+		if (data.empty())
+			std::cout << "Empty line :v" << std::endl;
+		else
 		{
+			//std::cout << data << std::endl;
+			//if (i && (std::count(data.begin(), data.end(), '|') != 1 || \
+			//		!isdigit(data.c_str()[0]) || !isdigit(data.c_str()[data.length() - 1])))
+			//std::cout << data.find('|') << std::endl;
+			//std::cout << data.length() << std::endl;
 
+			//std::cout << data << std::endl;
+			//std::string::iterator	l;
+			//l = data.begin() + 3;
+			//std::cout << std::distance(data.begin(), l) << std::endl;
+			//std::cout << data.find('|', 0) << std::endl;
+			//std::cout << data.find('|', 0) << std::endl;
+			//std::cout << data[data.find('|', 0)] << std::endl;
+			//std::cout << data[data.find('|', data.find('|') + 1)] << std::endl;
+			//std::cout << data.find('|', data.find('|') + 1) << std::endl;
+			//exit(0);
+
+			if (std::count(data.begin(), data.end(), '|') != 1 || \
+					data.find('|') == 0 || data.find('|') == data.length() - 1)
+			{
+				std::cout << "Here an error" << std::endl;
+			}
+			else
+			{
+				std::vector<std::string> sp = split(data, '|');
+				for (unsigned long	i = 0; i < sp.size(); i++)
+					trim_string(sp[i]);
+				if (!i)
+				{
+					if (sp[0].compare("data") || sp[1].compare("value"))
+						continue ;
+				}
+				//all this error should be used by throw catch
+				std::cout << sp[0] << std::endl;
+				if (std::count(sp[0].begin(), sp[0].end(), '-') != 2)
+				{
+					std::cout << "Error here" << std::endl;
+				}
+				std::vector<std::string> date = split(sp[0], '-');
+				for (unsigned long	i = 0; i < data.size(); i++)
+					std::cout << data << std::endl;
+				exit(0);
+			}
 		}
-		exit(0);
-		if (std::count(data.begin(), data.end(), '|') != 1 || \
-				!isdigit(data.c_str()[0]) || !isdigit(data.c_str()[data.length() - 1]))
-		{
-			std::cout << "ll" << std::endl;
-		}
-		//exit(0);
-		//if (!i && )
 	}
 }
 
