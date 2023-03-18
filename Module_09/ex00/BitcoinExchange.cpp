@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:28 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/17 21:52:13 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:21:05 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,22 @@ std::vector<std::string>	split(std::string data, char c)
 	return (value);
 }
 
+int	check_if_digit(std::string nbr)
+{
+	for (unsigned long j = 0; j < nbr.length(); j++)
+	{
+		if (!isdigit(nbr.c_str()[j]))
+			return (1);
+	}
+	return (0);
+}
+
 void	BitcoinExchange::parse_input_file(std::string file)
 {
 	std::string	data;
 	std::ifstream	input_file;
+	database	hold;
+	int	nbr;
 
 	input_file.open(file);
 	if (!input_file.is_open())
@@ -130,42 +142,16 @@ void	BitcoinExchange::parse_input_file(std::string file)
 	}
 	for (int	i = 0; std::getline(input_file, data); i++)
 	{
-		//std::cout << data.c_str()[data.length() - 1] << std::endl;
-		//here trim the string and 
-		//if (!i)
-		//{
-		//	if (data.compare("data | value"))
-		//		continue ;
-		//	else
-		//		std::cout << "Input file should start with : data | value" << std::endl;
-		//}
 		if (isspace(data.c_str()[0]) || isspace(data.c_str()[data.length() - 1]))
 			trim_string(data);
 		if (data.empty())
-			std::cout << "Empty line :v" << std::endl;
+			std::cerr << "Empty line :v" << std::endl;
 		else
 		{
-			//std::cout << data << std::endl;
-			//if (i && (std::count(data.begin(), data.end(), '|') != 1 || \
-			//		!isdigit(data.c_str()[0]) || !isdigit(data.c_str()[data.length() - 1])))
-			//std::cout << data.find('|') << std::endl;
-			//std::cout << data.length() << std::endl;
-
-			//std::cout << data << std::endl;
-			//std::string::iterator	l;
-			//l = data.begin() + 3;
-			//std::cout << std::distance(data.begin(), l) << std::endl;
-			//std::cout << data.find('|', 0) << std::endl;
-			//std::cout << data.find('|', 0) << std::endl;
-			//std::cout << data[data.find('|', 0)] << std::endl;
-			//std::cout << data[data.find('|', data.find('|') + 1)] << std::endl;
-			//std::cout << data.find('|', data.find('|') + 1) << std::endl;
-			//exit(0);
-
 			if (std::count(data.begin(), data.end(), '|') != 1 || \
 					data.find('|') == 0 || data.find('|') == data.length() - 1)
 			{
-				std::cout << "Here an error" << std::endl;
+				std::cerr << "Here an error" << std::endl;
 			}
 			else
 			{
@@ -178,15 +164,83 @@ void	BitcoinExchange::parse_input_file(std::string file)
 						continue ;
 				}
 				//all this error should be used by throw catch
-				std::cout << sp[0] << std::endl;
+				//std::cout << sp[0] << std::endl;
 				if (std::count(sp[0].begin(), sp[0].end(), '-') != 2)
 				{
-					std::cout << "Error here" << std::endl;
+					std::cerr << "Error here" << std::endl;
 				}
 				std::vector<std::string> date = split(sp[0], '-');
-				for (unsigned long	i = 0; i < data.size(); i++)
-					std::cout << data << std::endl;
+				//std::cout << date.size() << std::endl;
+				for (unsigned long	i = 0; i < date.size(); i++)
+				{
+					if (date[i].empty())
+						std::cerr << sp[0] << " Error in date :v" << std::endl;
+					else
+					{
+						if (check_if_digit(date[i]))
+						{
+							std::cerr << "Error in date only number" << std::endl;
+							continue ;
+							//mybe here use an exception
+						}
+					}
+				}
+				//here maybe int max will overflow to a value of 2009 mybe
+				//std::cout << atoi(date[0].c_str()) << std::endl;
+				if (!(atoi(date[0].c_str()) >= 2009 && atoi(date[0].c_str()) <= 2022))
+					std::cerr << "Error" << std::endl;
+				nbr = atoi(date[1].c_str());
+				if (!(nbr >= 1 && nbr <= 12))
+					std::cerr << "Error" << std::endl;
+				if (nbr == 1 || nbr == 3 || nbr == 5 ||\
+						nbr == 7 || nbr == 8 || nbr == 10 || nbr == 12)
+				{
+					if (!(atoi(date[2].c_str()) >= 1 && atoi(date[2].c_str()) <= 31))
+						std::cerr << "Error" << std::endl;
+				}
+				else if (nbr == 4 || nbr == 6 || nbr == 9 || nbr == 11)
+				{
+					if (!(atoi(date[2].c_str()) >= 1 && atoi(date[2].c_str()) <= 30))
+						std::cerr << "Error" << std::endl;
+				}
+				else if (nbr == 2)
+				{
+					//maybe here add 29 too
+					if (!(atoi(date[2].c_str()) >= 1 && atoi(date[2].c_str()) <= 28))
+						std::cerr << "Error" << std::endl;
+				}
+				if (check_if_digit(sp[1]))
+				{
+					std::cerr << "Error in date only number" << std::endl;
+					//continue ;
+					//mybe here use an exception
+				}
+				if (!(atof(sp[1].c_str()) >= 1 && atof(sp[1].c_str()) <= INT_MAX))
+				{
+					std::cerr << "Error in date only number" << std::endl;
+					//continue ;
+					//mybe here use an exception
+				}
+				hold.year = atoi(date[0].c_str());
+				hold.month = atoi(date[1].c_str());
+				hold.day = atoi(date[2].c_str());
+				hold.value = atof(sp[1].c_str());
+				//std::cout << hold.year << std::endl;
+				//std::cout << hold.month << std::endl;
+				//std::cout << hold.day << std::endl;
+				std::cout << hold.value << std::endl;
+				//std::find(this->data.begin()->year, this->data.end()->year, '2009');
+				//std::vector<int>::iterator g;
+				//g = this->data.begin();
+				//std::cout << *(&g->year) << std::endl;
+				//g = std::find((&this->data.begin()->year), (&this->data.end()->year), '2009');
+				////std::cout << std::find((&this->data.begin()->year), (&this->data.end()->year), '2009') << std::endl;
+				//std::cout << g << std::endl;
 				exit(0);
+				//for (int i = 0; i < this->data.size(); i++)
+				//{
+
+				//}
 			}
 		}
 	}
