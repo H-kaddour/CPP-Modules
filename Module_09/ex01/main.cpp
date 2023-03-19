@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 15:06:02 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/19 13:41:46 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/03/19 14:45:18 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/03/19 18:03:01 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Error\nUsage: ./btc file" << std::endl;
+		std::cerr << "Error: invalid argument" << std::endl;
 		return (1);
 	}
-	BitcoinExchange g;
-	g.read_database();
-	g.parse_input_file(av[1]);
+	try
+	{
+		calculate(parse_the_data(av[1]));
+	}
+	catch (const char *error)
+	{
+		std::cerr << error << std::endl;
+		return (1);
+	}
 	return (0);
 }
