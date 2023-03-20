@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 14:45:18 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/20 11:16:13 by hkaddour         ###   ########.fr       */
+/*   Created: 2023/03/20 11:18:05 by hkaddour          #+#    #+#             */
+/*   Updated: 2023/03/20 13:16:16 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#pragma once
 
-int	main(int ac, char **av)
-{
-	try
-	{
-		if (ac != 2)
-			throw ("Error: invalid argument");
-		calculate(parse_the_data(av[1]));
-	}
-	catch (const char *error)
-	{
-		std::cerr << error << std::endl;
-		return (1);
-	}
-	return (0);
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+//void	parsing(int len, char **data);
+int	*parsing(int len, char **data);
+//void	sorting(int len, char **data);
+void	sorting(int len, int *nbr);
