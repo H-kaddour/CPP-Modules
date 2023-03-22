@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:17:25 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/21 15:19:09 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:00:11 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,58 @@ void	fill_data(std::vector<int> sort, \
 		tmp.second.push_back(sort[i]);
 }
 
-void	sort_that_shit(std::vector<int> sort, std::pair<std::vector<int>, std::vector<int> > tmp)
+void	sort_that_shit(std::vector<int> &sort, \
+		std::pair<std::vector<int>, std::vector<int> > tmp, int index)
 {
-	for (int	i = 0; i < sort.size(); i++)
+	int	size = tmp.first.size() > tmp.second.size() ? tmp.first.size() : tmp.second.size();
+
+	size = sort.size();
+	int	i = 0;
+	int	j = 0;
+	int	k = 0;
+	int	start = index;
+
+	std::cout << "vec size = " << sort.size() << " | start = " << start << std::endl;
+	//return ;
+	while (k < size)
 	{
-		//for ()
+		if (!tmp.first[i] || !tmp.second[j])
+			break ;
+		if (tmp.first[i] <= tmp.second[j])
+		{
+			sort[k] = tmp.first[i++];
+		}
+		else
+		{
+			//here use a function of c++
+			sort[k] = tmp.second[j++];
+
+		}
+		k++;
 	}
+	if (tmp.first[i])
+	{
+		while (k < size)
+			sort[k++] = tmp.first[i++];
+	}
+
+	if (tmp.second[j])
+	{
+		while (k < size)
+			sort[k++] = tmp.second[j++];
+	}
+
+	//for (int	i = 0; i < sort.size(); i++)
+	//{
+	//	for (int	j = 0; j < size; j++)
+	//	{
+	//		if (tmp.first[j] < tmp.second[])
+	//	}
+	//}
 	//here finish the algo it's easy senior developers don't code anymore!!
 }
 
-void	merge_sort(std::vector<int> sort)
+void	merge_sort(std::vector<int> &sort)
 {
 	std::pair<int, int> size;
 	std::pair<std::vector<int>, std::vector<int> > tmp;
@@ -41,20 +83,21 @@ void	merge_sort(std::vector<int> sort)
 	size.first = sort.size() / 2;
 	size.second = sort.size() - size.first;
 	fill_data(sort, tmp, size);
-	std::vector<int>::iterator	itr;
-	std::cout << "start" << std::endl;
-	for (itr = tmp.first.begin(); itr != tmp.first.end(); itr++)
-		std::cout << *itr << std::endl;
+	//std::vector<int>::iterator	itr;
+	//std::cout << "start" << std::endl;
+	//for (itr = tmp.first.begin(); itr != tmp.first.end(); itr++)
+	//	std::cout << *itr << std::endl;
 
-	std::cout << "encore" << std::endl;
+	//std::cout << "encore" << std::endl;
 
-	for (itr = tmp.second.begin(); itr != tmp.second.end(); itr++)
-		std::cout << *itr << std::endl;
-	std::cout << "end" << std::endl;
+	//for (itr = tmp.second.begin(); itr != tmp.second.end(); itr++)
+	//	std::cout << *itr << std::endl;
+	//std::cout << "end" << std::endl;
 
 	merge_sort(tmp.first);
 	merge_sort(tmp.second);
-	sort_that_shit(sort, tmp);
+	//sort_that_shit(sort, tmp, size.second);
+	sort_that_shit(sort, tmp, (sort.size() % 2 == 1 ? size.second - 1 : size.second));
 	
 
 
@@ -85,7 +128,7 @@ void	sorting(int len, int *nbr)
 	merge_sort(sort);
 	std::vector<int>::iterator	itr;
 	std::cout << "After:";
-	for (itr = sort.begin(); itr < sort.end(); itr++)
+	for (itr = sort.begin(); itr != sort.end(); itr++)
 		std::cout << " " << *itr;
 	std::cout << std::endl;
 }
