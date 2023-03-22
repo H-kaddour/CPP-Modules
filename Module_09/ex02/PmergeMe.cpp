@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:17:25 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/22 12:00:11 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:58:20 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,37 +31,81 @@ void	sort_that_shit(std::vector<int> &sort, \
 	int	i = 0;
 	int	j = 0;
 	int	k = 0;
-	int	start = index;
+	//int	start = index;
+	(void)index;
+	std::vector<int>	ok;
 
-	std::cout << "vec size = " << sort.size() << " | start = " << start << std::endl;
+	//std::cout << "vec size = " << sort.size() << " | start = " << start << std::endl;
 	//return ;
+	for (unsigned long	i = 0; i < tmp.first.size(); i++)
+	{
+		std::cout << " " << tmp.first[i] ;
+	}
+	std::cout << std::endl;
+	for (unsigned long	i = 0; i < tmp.second.size(); i++)
+	{
+		std::cout << " " << tmp.second[i] ;
+	}
+	std::cout << std::endl;
+	return ;
 	while (k < size)
 	{
 		if (!tmp.first[i] || !tmp.second[j])
 			break ;
 		if (tmp.first[i] <= tmp.second[j])
 		{
-			sort[k] = tmp.first[i++];
+			//sort[k] = tmp.first[i++];
+			//ok.push_back(tmp.first[i++]);
+			ok.push_back(8);
 		}
 		else
 		{
 			//here use a function of c++
-			sort[k] = tmp.second[j++];
-
+			//sort[k] = tmp.second[j++];
+			//ok.push_back(tmp.second[j++]);
+			ok.push_back(9);
 		}
+		std::cout << "in " << ok[k] << std::endl;
 		k++;
 	}
 	if (tmp.first[i])
 	{
 		while (k < size)
-			sort[k++] = tmp.first[i++];
+		{
+			ok.push_back(tmp.first[i++]);
+			std::cout << "g " << ok[k] << std::endl;
+			k++;
+		}
+			//sort[k++] = tmp.first[i++];
 	}
 
 	if (tmp.second[j])
 	{
 		while (k < size)
-			sort[k++] = tmp.second[j++];
+		{
+			ok.push_back(tmp.second[j++]);
+			std::cout << "d " << ok[k] << std::endl;
+			k++;
+		}
+			//sort[k++] = tmp.second[j++];
 	}
+	sort = ok;
+	return ;
+	sort.clear();
+	std::cout << ok.size() << " ok" << std::endl; 
+	for (unsigned long	i = 0; i < ok.size(); i++)
+	{
+		std::cout << " " << ok[i];
+	}
+	std::cout << std::endl;
+	std::cout << "sort" << std::endl; 
+	for (unsigned long	i = 0; i < ok.size(); i++)
+	{
+		sort.push_back(ok[i]);
+		std::cout << " " << sort[i];
+	}
+	std::cout << std::endl;
+	//sort = ok;
 
 	//for (int	i = 0; i < sort.size(); i++)
 	//{
@@ -125,6 +169,7 @@ void	sorting(int len, int *nbr)
 	std::vector<int>	sort;
 	for (int i = 0; i < len; i++)
 		sort.push_back(nbr[i]);
+	//sort = merge_sort(sort);
 	merge_sort(sort);
 	std::vector<int>::iterator	itr;
 	std::cout << "After:";
