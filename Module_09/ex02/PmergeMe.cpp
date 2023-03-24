@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:17:25 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/22 12:58:20 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/24 13:19:54 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@ void	fill_data(std::vector<int> sort, \
 	int	i;
 	for (i = 0; i < size.first; i++)
 		tmp.first.push_back(sort[i]);
-	for (; i < static_cast<int>(sort.size()); i++)
+	//for (; i < static_cast<int>(sort.size()); i++)
+	for (; (unsigned long)i < (sort.size()); i++)
 		tmp.second.push_back(sort[i]);
+
+	//for (i = 0; (unsigned long)i < tmp.first.size(); i++)
+	//	std::cout << " " << tmp.first[i];
+	//std::cout << std::endl;
+	//for (i = 0; (unsigned long)i < tmp.second.size(); i++)
+	//	std::cout << " " << tmp.second[i];
+	//std::cout << std::endl;
 }
 
 void	sort_that_shit(std::vector<int> &sort, \
@@ -37,53 +45,73 @@ void	sort_that_shit(std::vector<int> &sort, \
 
 	//std::cout << "vec size = " << sort.size() << " | start = " << start << std::endl;
 	//return ;
-	for (unsigned long	i = 0; i < tmp.first.size(); i++)
-	{
-		std::cout << " " << tmp.first[i] ;
-	}
-	std::cout << std::endl;
-	for (unsigned long	i = 0; i < tmp.second.size(); i++)
-	{
-		std::cout << " " << tmp.second[i] ;
-	}
-	std::cout << std::endl;
-	return ;
+
+	//for (unsigned long	i = 0; i < tmp.first.size(); i++)
+	//{
+	//	std::cout << " " << tmp.first[i] ;
+	//}
+	//std::cout << std::endl;
+	//for (unsigned long	i = 0; i < tmp.second.size(); i++)
+	//{
+	//	std::cout << " " << tmp.second[i] ;
+	//}
+	//std::cout << std::endl;
+	//return ;
+
+	//std::vector<int>::iterator	l1 = tmp.first.begin();
+	//std::vector<int>::iterator	l2 = tmp.second.begin();
+
 	while (k < size)
 	{
-		if (!tmp.first[i] || !tmp.second[j])
+		//if (!tmp.first[i] || !tmp.second[j])
+		if (i == tmp.first.size() || j == tmp.second.size())
 			break ;
 		if (tmp.first[i] <= tmp.second[j])
 		{
 			//sort[k] = tmp.first[i++];
-			//ok.push_back(tmp.first[i++]);
-			ok.push_back(8);
+			ok.push_back(tmp.first[i++]);
+			//ok.push_back(*l1);
+			//l1++;
+			//i++;
+			//ok.push_back(8);
 		}
 		else
 		{
 			//here use a function of c++
 			//sort[k] = tmp.second[j++];
-			//ok.push_back(tmp.second[j++]);
-			ok.push_back(9);
+			ok.push_back(tmp.second[j++]);
+			//ok.push_back(*l2);
+			//l2++;
+			//j++;
+			//ok.push_back(9);
 		}
 		std::cout << "in " << ok[k] << std::endl;
 		k++;
 	}
-	if (tmp.first[i])
+	//if (tmp.first[i])
+	if (i != tmp.first.size())
 	{
 		while (k < size)
 		{
 			ok.push_back(tmp.first[i++]);
+			//ok.push_back(*l1);
+			//l1++;
+			//i++;
 			std::cout << "g " << ok[k] << std::endl;
 			k++;
 		}
-			//sort[k++] = tmp.first[i++];
+		//sort[k++] = tmp.first[i++];
 	}
 
-	if (tmp.second[j])
+	//if (tmp.second[j])
+	if (j != tmp.second.size())
 	{
 		while (k < size)
 		{
 			ok.push_back(tmp.second[j++]);
+			//ok.push_back(*l2);
+			//l2++;
+			//j++;
 			std::cout << "d " << ok[k] << std::endl;
 			k++;
 		}
@@ -140,7 +168,7 @@ void	merge_sort(std::vector<int> &sort)
 
 	merge_sort(tmp.first);
 	merge_sort(tmp.second);
-	//sort_that_shit(sort, tmp, size.second);
+	////sort_that_shit(sort, tmp, size.second);
 	sort_that_shit(sort, tmp, (sort.size() % 2 == 1 ? size.second - 1 : size.second));
 	
 
@@ -162,10 +190,10 @@ void	merge_sort(std::vector<int> &sort)
 
 void	sorting(int len, int *nbr)
 {
-	std::cout << "Before:";
-	for (int i = 0; i < len; i++)
-		std::cout << " " << nbr[i];
-	std::cout << std::endl;
+	//std::cout << "Before:";
+	//for (int i = 0; i < len; i++)
+	//	std::cout << " " << nbr[i];
+	//std::cout << std::endl;
 	std::vector<int>	sort;
 	for (int i = 0; i < len; i++)
 		sort.push_back(nbr[i]);
