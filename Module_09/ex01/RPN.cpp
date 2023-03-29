@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:50:33 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/20 11:13:05 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:57:55 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	calculate(std::string data)
 		}
 	}
 	std::cout << operation.top() << std::endl;
-	//maybe here i will not show - or float point only decimal
 }
 
 std::string	parse_the_data(std::string data)
@@ -68,9 +67,6 @@ std::string	parse_the_data(std::string data)
 	take_off_space(data);
 	int	nbr = 0;
 	int	oprtr = 0;
-	//check it will be range between 0 9
-	//it will start with two number and no sign
-	//don't accept negative
 	if (data.empty() || data.length() < 3)
 		throw ("Error: invalid argument!");
 	for (unsigned long	i = 0; i < data.size(); i++)

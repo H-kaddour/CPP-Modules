@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:18:05 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/24 14:41:37 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:43:54 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 #include <sys/time.h>
 #include <algorithm>
 
-//void	parsing(int len, char **data);
-int	*parsing(int len, char **data);
-//void	sorting(int len, char **data);
+void	parsing(int len, char **data, int **nbr);
 void	sorting(int len, int *nbr);
 
 template <class T>
@@ -43,22 +41,22 @@ void	sort_that_shit(T &sort, std::pair<T, T > tmp)
 
 	while (k < size)
 	{
-		if (i == tmp.first.size() || j == tmp.second.size())
+		if (i == static_cast<int>(tmp.first.size()) || \
+				j == static_cast<int>(tmp.second.size()))
 			break ;
 		if (tmp.first[i] <= tmp.second[j])
 			sort[k] = tmp.first[i++];
 		else
 			sort[k] = tmp.second[j++];
-			//here use a function of c++
 		k++;
 	}
-	if (i != tmp.first.size())
+	if (i != static_cast<int>(tmp.first.size()))
 	{
 		while (k < size)
 			sort[k++] = tmp.first[i++];
 	}
 
-	if (j != tmp.second.size())
+	if (j != static_cast<int>(tmp.second.size()))
 	{
 		while (k < size)
 			sort[k++] = tmp.second[j++];

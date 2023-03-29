@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:28 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/19 13:41:09 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:57:24 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	date_value_check(std::pair<std::string, std::string> data)
 	}
 	else if (nbr == 2)
 	{
-		//maybe here add 29 too
 		if (!(atoi(hold[2].c_str()) >= 1 && atoi(hold[2].c_str()) <= 28))
 			throw ("Error: bad day input this month ranges from 01..28");
 	}
