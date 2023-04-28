@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:50:33 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/25 13:57:55 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:39:42 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	calculate(std::string data)
 	{
 		if (isdigit(data.c_str()[i]))
 			operation.push(atoi(get_arg(data, i).c_str()));
-		else
+		else if (operation.size() >= 2)
 		{
 			top = operation.top();
 			operation.pop();
@@ -58,6 +58,8 @@ void	calculate(std::string data)
 			else if (data.c_str()[i] == '+')
 				operation.push(top + down);
 		}
+		else
+			throw ("Error: misplace the operation");
 	}
 	std::cout << operation.top() << std::endl;
 }

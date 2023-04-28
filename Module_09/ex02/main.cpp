@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:16:36 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/25 13:16:48 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:16:12 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	main(int ac, char **av)
 		parsing(ac - 1, av + 1, &nbr);
 		sorting(ac - 1, nbr);
 		delete [] nbr;
+		return (0);
 	}
 	catch (const char *error)
 	{
-		std::cerr << error << std::endl;
+		std::cout << error << std::endl;
 		delete [] nbr;
+		return (1);
 	}
-	return (0);
 }

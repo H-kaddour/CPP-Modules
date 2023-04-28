@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:18:05 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/25 17:43:54 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:15:21 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,41 @@
 #include <deque>
 #include <sys/time.h>
 #include <algorithm>
+#define K 100
 
 void	parsing(int len, char **data, int **nbr);
 void	sorting(int len, int *nbr);
 
-template <class T>
-void	fill_data(T sort, std::pair<T, T > &tmp, std::pair<int, int> size)
+template <typename T>
+void	insertion_sort(T &sort)
 {
-	int	i;
-	for (i = 0; i < size.first; i++)
-		tmp.first.push_back(sort[i]);
-	for (; (unsigned long)i < (sort.size()); i++)
-		tmp.second.push_back(sort[i]);
+	for (size_t	i = 0; i < sort.size() - 1; i++)
+	{
+		int	hld = sort[i + 1];
+		int	j = i + 1;
+		while (j && sort[j - 1] > hld)
+		{
+			sort[j] = sort[j - 1];
+			j--;
+		}
+		sort[j] = hld;
+	}
 }
 
 template <typename T>
-void	sort_that_shit(T &sort, std::pair<T, T > tmp)
+std::pair<T, T>	separate(T sort)
+{
+	int	i;
+	std::pair<T, T> tmp;
+	for (i = 0; i < static_cast<int>(sort.size()) / 2; i++)
+		tmp.first.push_back(sort[i]);
+	for (; (unsigned long)i < (sort.size()); i++)
+		tmp.second.push_back(sort[i]);
+	return (tmp);
+}
+
+template <typename T>
+void	merge_sort(T &sort, std::pair<T,T > tmp)
 {
 	int	size = sort.size();
 	int	i = 0;
@@ -55,7 +74,6 @@ void	sort_that_shit(T &sort, std::pair<T, T > tmp)
 		while (k < size)
 			sort[k++] = tmp.first[i++];
 	}
-
 	if (j != static_cast<int>(tmp.second.size()))
 	{
 		while (k < size)
@@ -64,17 +82,17 @@ void	sort_that_shit(T &sort, std::pair<T, T > tmp)
 }
 
 template <typename T>
-void	merge_sort(T &sort)
+void	sortt(T &sort)
 {
-	std::pair<int, int> size;
-	std::pair<T, T > tmp;
+	std::pair<T, T> hld;
 
-	if (sort.size() < 2)
-		return ;
-	size.first = sort.size() / 2;
-	size.second = sort.size() - size.first;
-	fill_data(sort, tmp, size);
-	merge_sort(tmp.first);
-	merge_sort(tmp.second);
-	sort_that_shit(sort, tmp);
+	if (sort.size() > K)
+	{
+		hld = separate(sort);
+		sortt(hld.first);
+		sortt(hld.second);
+		merge_sort(sort, hld);
+	}
+	else
+		insertion_sort(sort);
 }

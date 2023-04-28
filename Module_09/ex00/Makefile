@@ -21,7 +21,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $^ -o $@
+	$(CC) $(OBJS) -o $@
 
 %.o: %.cpp $(HEADER)
 	$(CC) $(FLAG) -c $< -o $@

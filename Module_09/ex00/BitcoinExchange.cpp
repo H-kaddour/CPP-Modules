@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:06:28 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/03/25 13:57:24 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:30:29 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	date_value_check(std::pair<std::string, std::string> data)
 	std::string	tmp = data.first;
 	std::string hold[3];
 	int	nbr;
+	int	feb = 28;
 	for (int i = 0; i < 3; i++)
 		hold[i] = split(tmp, '-');
 	for (unsigned long	i = 0; i < 3; i++)
@@ -83,21 +84,27 @@ void	date_value_check(std::pair<std::string, std::string> data)
 	}
 	else if (nbr == 2)
 	{
-		if (!(atoi(hold[2].c_str()) >= 1 && atoi(hold[2].c_str()) <= 28))
-			throw ("Error: bad day input this month ranges from 01..28");
+		if (!(atoi(hold[0].c_str()) % 4))
+			feb = 29;
+		if (!(atoi(hold[2].c_str()) >= 1 && atoi(hold[2].c_str()) <= feb))
+			throw ("Error: bad day input this month ranges from 01..28/29");
 	}
-	int	dot = 0;
+	if (atoi(hold[0].c_str()) == 2009 && atoi(hold[1].c_str()) == 1)
+	{
+		if (atoi(hold[2].c_str()) == 1)
+			throw ("Error: date should start from 2009-01-02 up");
+	}
+	if (std::count(data.second.begin(), data.second.end(), '.') > 1)
+		throw ("Error: bad value input enter a valid number");
 	for (unsigned long i = 0; i < data.second.length(); i++)
 	{
-		if (!isdigit(data.second.c_str()[i]) || dot > 1)
+		if (!isdigit(data.second.c_str()[i]))
 		{
-			if (data.second.c_str()[i] != '.' || dot > 1)
+			if (data.second.c_str()[i] != '.')
 				throw ("Error: bad value input enter a valid number");
 		}
-		if (data.second.c_str()[i] == '.')
-			dot++;
 	}
-	if (!(atof(data.second.c_str()) >= 1 && atof(data.second.c_str()) < INT_MAX))
+	if (!(atof(data.second.c_str()) >= 0 && atof(data.second.c_str()) < 1000))
 		throw ("Error: bad value range");
 }
 
@@ -132,7 +139,7 @@ void	BitcoinExchange::parse_input_file(std::string file)
 					sp.second = trim_string(data);
 					if (!i)
 					{
-						if (sp.first.compare("data") || sp.second.compare("value"))
+						if (!sp.first.compare("date") && !sp.second.compare("value"))
 							continue ;
 					}
 					date_value_check(sp);
@@ -154,10 +161,7 @@ void	BitcoinExchange::parse_input_file(std::string file)
 	}
 }
 
-BitcoinExchange::BitcoinExchange(void)
-{
-	std::cout << "BitcoinExchange Default constructor called!" << std::endl;
-}
+BitcoinExchange::BitcoinExchange(void) {}
 
 void	BitcoinExchange::read_database(void)
 {
@@ -170,7 +174,7 @@ void	BitcoinExchange::read_database(void)
 	std::string data;
 	std::pair<std::string, double> add;
 	std::getline(this->fd_database, data);
-	for (int i = 0; std::getline(this->fd_database, data); i++)
+	for (; std::getline(this->fd_database, data);)
 	{
 		add.first = split(data, ',');
 		add.second = atof(data.c_str());
@@ -181,21 +185,15 @@ void	BitcoinExchange::read_database(void)
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const & obj)
 {
-	std::cout << "BitcoinExchange Copy constructor called!" << std::endl;
 	*this = obj;
 }
 
 BitcoinExchange & BitcoinExchange::operator=(BitcoinExchange const & obj)
 {
-	std::cout << "BitcoinExchange Copy assignement called!" << std::endl;
 	std::map<std::string, double>::const_iterator	itr;
-
 	for (itr = obj.data.cbegin(); itr != obj.data.cend(); itr++)
 		this->data.insert(*itr);
 	return (*this);
 }
 
-BitcoinExchange::~BitcoinExchange(void)
-{
-	std::cout << "BitcoinExchange Destructor called!" << std::endl;
-}
+BitcoinExchange::~BitcoinExchange(void) {}
