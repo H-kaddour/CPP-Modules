@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:50:33 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/04/28 22:39:42 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:52:57 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 void	take_off_space(std::string &data)
 {
-	std::string::iterator itr = data.begin();
-
-	for (int i = 0; itr < data.end(); )
+	for (std::string::iterator itr = data.begin(); itr != data.end(); )
 	{
-		if (isspace(data.c_str()[i]))
+		if (isspace(*itr))
 			data.erase(itr);
 		else
-		{
-			i++;
 			itr++;
-		}
 	}
 }
 

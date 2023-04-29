@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:17:25 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/04/28 21:17:54 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:18:36 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	sorting(int len, int *nbr)
 		std::cout << " " << *itr;
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << len << \
-		" elements with std::vector : " << vec << " us" << std::endl;
+		" elements with std::vector : " << (double)vec / CLOCKS_PER_SEC * 1000 << " us" << std::endl;
 	std::cout << "Time to process a range of " << len << \
-		" elements with std::deque : " << deq << " us" << std::endl;
+		" elements with std::deque : " << (double)deq / CLOCKS_PER_SEC * 1000 << " us" << std::endl;
 }
 
 void	parsing(int len, char **data, int **nbr)
