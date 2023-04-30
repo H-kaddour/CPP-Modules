@@ -6,7 +6,7 @@
 /*   By: hkaddour <hkaddour@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:17:25 by hkaddour          #+#    #+#             */
-/*   Updated: 2023/04/29 17:18:36 by hkaddour         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:34:15 by hkaddour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	sorting(int len, int *nbr)
 
 	clock_t	vec;
 	clock_t	deq;
-	deq = clock();
-	sortt(sort);
-	deq = clock() - deq;
 	vec = clock();
-	sortt(dqu);
+	sortt(sort);
 	vec = clock() - vec;
+	deq = clock();
+	sortt(dqu);
+	deq = clock() - deq;
 	std::deque<int>::iterator	itr;
 	std::cout << "After:";
 	for (itr = dqu.begin(); itr != dqu.end(); itr++)
